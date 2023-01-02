@@ -1,0 +1,45 @@
+type
+	LL
+	{
+		int value;
+		LL next;
+	}
+endtype
+
+int main()
+{
+	decl
+		int N, tmp,num,i;
+		LL head, temp;
+	enddecl
+
+	begin
+		tmp = initialize();
+		tmp = exposcall("Write", -2, "Enter N: ");
+		tmp = exposcall("Read", -1, N);
+		i = 0;
+		while( (i < N) ) do
+			tmp = exposcall("Read", -1, num);
+			temp = alloc();
+			temp.value = num;
+			temp.next = null;
+			if( (head == null) ) then
+				head = temp;
+			else
+				temp.next = head;
+				head = temp;
+			endif;
+			i = i + 1;
+		endwhile;
+		temp = head;
+		tmp = exposcall("Write", -2, "Link List :");
+		i = 0;
+		while( (i < N) ) do
+			tmp = exposcall("Write", -2, temp.value);
+			temp = temp.next;
+			i = i + 1;
+		endwhile;
+		return 0;
+
+	end
+}

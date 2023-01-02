@@ -1,0 +1,6 @@
+./spl /home/vcube/myexpos/spl/spl_progs/stage22/boot.spl
+./spl /home/vcube/myexpos/spl/spl_progs/stage22/int8.spl
+./spl /home/vcube/myexpos/spl/spl_progs/stage22/int13.spl
+./spl /home/vcube/myexpos/spl/spl_progs/stage22/int14.spl
+./spl /home/vcube/myexpos/spl/spl_progs/stage22/mod0.spl
+./spl /home/vcube/myexpos/spl/spl_progs/stage22/mod1.spl

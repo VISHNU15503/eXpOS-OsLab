@@ -1,0 +1,70 @@
+type
+	LL
+	{
+		int value;
+		LL next;
+	}
+endtype
+
+decl
+		int x, PID, tmp, length;
+		LL head;
+enddecl
+
+int main()
+{
+	
+	decl
+    		LL p, q;
+    		int i;
+	enddecl
+		begin
+    	tmp = exposcall("Heapset");
+    	head = null;
+    	q = head;
+
+    	length=1;
+    	while (length <= 100)  do
+        	p = exposcall("Alloc",2);
+        	p.value = length;
+        	p.next = null;
+        
+        	if (head == null) then
+            	head = p;
+            	q = p;
+        	else
+            	q.next = p;
+            	q = q.next;
+        	endif;
+                          
+        	length = length+1;
+    	endwhile;
+                      
+    	PID = exposcall("Fork");
+    	if(PID == 0) then
+        	p = head;
+        	while(p != null)  do
+            	x = p.value;
+            	tmp = exposcall("Write",-2,x);
+            	p = p.next;
+            	if(p == null) then
+                	break;
+            	endif;
+            	p = p.next;
+        	endwhile;
+    	else
+        	q = head.next;
+        	while(q != null)  do
+            	x = q.value;
+            	tmp = exposcall("Write",-2,x);
+            	q = q.next;
+            	if(q == null) then
+                	break;
+            	endif;
+            	q = q.next;
+        	endwhile;
+    	endif;
+                
+    	return 0;
+	end
+}
